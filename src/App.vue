@@ -1,38 +1,32 @@
 <template>
   <TheHeader></TheHeader>
-  <div v-if="!smallScreen">
-    <q-splitter v-model="ms.splitterModel" style="height: calc(100vh - 50px)">
-      <template v-slot:before>
-        <div class="q-ma-lg">
-          <TheLeftPanel></TheLeftPanel>
-        </div>
-      </template>
-      <template v-slot:after>
-        <div>
-          <TheMap></TheMap>
-        </div>
-      </template>
-    </q-splitter>
-  </div>
-  <div v-else>
-    <q-splitter
-      v-model="ms.mobileSplitterModel"
-      style="height: calc(100vh - 50px); width: 100%; position: absolute"
-      disable
-      horizontal
-    >
-      <template v-slot:before>
-        <div>
-          <TheMap></TheMap>
-        </div>
-      </template>
-      <template v-slot:after>
-        <div class="q-ma-lg" style="height: 65% !important">
-          <TheLeftPanel></TheLeftPanel>
-        </div>
-      </template>
-    </q-splitter>
-  </div>
+  <q-splitter
+    v-model="ms.splitterModel"
+    :style="
+      !smallScreen
+        ? 'height: calc(100vh - 50px)'
+        : 'height: calc(100vh - 50px); width: 100%; position: absolute'
+    "
+    :disable="smallScreen"
+    :horizontal="smallScreen"
+  >
+    <template v-slot:before>
+      <div class="q-ma-lg" v-if="!smallScreen">
+        <TheLeftPanel></TheLeftPanel>
+      </div>
+      <div v-else>
+        <TheMap></TheMap>
+      </div>
+    </template>
+    <template v-slot:after>
+      <div v-if="!smallScreen">
+        <TheMap></TheMap>
+      </div>
+      <div class="q-ma-lg" v-else style="height: 65% !important">
+        <TheLeftPanel></TheLeftPanel>
+      </div>
+    </template>
+  </q-splitter>
 </template>
 
 <script setup>

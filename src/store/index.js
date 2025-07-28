@@ -7,7 +7,8 @@ export const useMapStore = defineStore('mapStore', () => ({
 
   // FUNCTIONS
   getLayersInfo() {
-    let webMap = document.querySelector('arcgis-map').scrollIntoView.map;
+    // get and assign layers
+    const webMap = document.querySelector('arcgis-map').view.map;
     console.log(webMap);
   },
 }));
