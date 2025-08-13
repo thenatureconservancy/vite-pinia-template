@@ -14,7 +14,8 @@ const ms = useMapStore();
 #panel {
   height: 100%;
   width: 25%;
-  position: float;
+  float: 'right';
   right: 0px;
+  top: 50px;
 }
 </style>
