@@ -1,8 +1,9 @@
 <template>
   <q-toolbar elevated class="bg-primary text-white">
     <q-toolbar-title style="font-weight: 600">
-      <span class="q-mr-sm">The Nature Conservancy</span>
-      <span class="text-weight-light"> Project Title </span>
+      <span class="q-mx-sm"><q-img src="/public/tnc.png" width="150px" /></span>
+      <span class="q-mx-sm">Project Title</span>
+      <span class="text-weight-light">Subtitle</span>
     </q-toolbar-title>
     <q-btn color="primary" dense unelevated icon="menu">
       <q-menu>

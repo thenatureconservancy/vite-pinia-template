@@ -44,6 +44,7 @@ import '@arcgis/map-components/components/arcgis-home';
 import TheHeader from './components/TheHeader.vue';
 import TheMap from './components/TheMap.vue';
 import TheLeftPanel from './components/TheLeftPanel.vue';
+import Panel from './components/UI/Panel.vue';
 
 const ms = useMapStore();
 const $q = useQuasar();
