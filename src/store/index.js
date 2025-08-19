@@ -5,6 +5,7 @@ export const useMapStore = defineStore('mapStore', () => ({
   splitterModel: 25,
   mobileSplitterModel: 35,
   leftPanelInfo: false,
+  rightPanelVis: true,
 
   // FUNCTIONS
   getLayersInfo() {

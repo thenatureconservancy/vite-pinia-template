@@ -19,8 +19,13 @@
       </div>
     </template>
     <template v-slot:after>
-      <div v-if="!smallScreen">
+      <div v-if="!smallScreen" class="map-panel-wrapper">
         <TheMap></TheMap>
+        <!-- Commented code below is for a custom panel that operates similar to q-drawer -->
+
+        <!-- <transition name="slide">
+          <Panel v-if="ms.rightPanelVis"></Panel>
+        </transition> -->
       </div>
       <div class="q-ma-lg" v-else style="height: 65% !important">
         <TheLeftPanel></TheLeftPanel>
@@ -65,5 +70,27 @@ let smallScreen = computed(() => $q.screen.lt.sm);
     .esri-expand__panel {
     padding: 2px;
   }
+}
+
+/* Slide transition */
+.slide-enter-active,
+.slide-leave-active {
+  transition: transform 0.3s ease;
+}
+.slide-enter-from,
+.slide-leave-to {
+  transform: translateX(100%);
+}
+.map-panel-wrapper {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+.map-panel-wrapper > * {
+  height: 100%;
+}
+.map-panel-wrapper > TheMap {
+  flex: 1;
 }
 </style>
